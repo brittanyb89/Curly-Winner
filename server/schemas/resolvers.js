@@ -1,5 +1,5 @@
 // import the User model
-import { User } from "../models";
+const { User } = require("../models");
 
 // Create a function that fulfills the query defined in 'typeDefs.js'
 const resolvers = {
@@ -28,3 +28,5 @@ const resolvers = {
     },
   },
 };
+
+module.exports = resolvers;

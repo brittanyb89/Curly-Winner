@@ -1,4 +1,4 @@
-import { gql } from "graphql-tag";
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   # Define Query type: me (returns a User type)
@@ -50,4 +50,5 @@ const typeDefs = gql`
     user: User
   }
 `;
-export default typeDefs;
+
+module.exports = typeDefs;

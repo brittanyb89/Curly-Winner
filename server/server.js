@@ -18,7 +18,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// TODO: if we're in production, serve client/build as static assets
+// if we're in production, serve client/build as static assets
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
