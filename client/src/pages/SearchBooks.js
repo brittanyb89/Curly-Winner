@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { searchGoogleBooks } from "../utils/API";
+// import { searchGoogleBooks } from "../utils/API";
 import Auth from "../utils/auth";
 import { getSavedBookIds, saveBookIds } from "../utils/localStorage";
 import { SAVE_BOOK } from "../utils/mutations";
@@ -33,7 +33,9 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+      );
 
       if (!response.ok) {
         throw new Error("something went wrong!");

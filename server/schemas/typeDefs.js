@@ -32,17 +32,17 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    bookCount: Int!
-    savedBooks: [Book]!
+    bookCount: Int
+    savedBooks: [Book]
   }
   # Define book type: bookId, authors, description, title, image, link
   type Book {
-    bookId: String!
-    authors: [String]!
-    description: String!
-    title: String!
-    image: String!
-    link: String!
+    bookId: ID!
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
   }
   # Define auth type: token, user (a User type)
   type Auth {
