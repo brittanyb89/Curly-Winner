@@ -5,8 +5,6 @@
 - [Description](#description)
 - [Usage](#usage)
 - [Mock-Up](#mock-up)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
 - [License](#license)
 
@@ -21,6 +19,7 @@ AS AN avid reader
 I WANT to search for new books to read
 SO THAT I can keep a list of books to purchase
 ```
+
 # Acceptance Criteria
 
 ```
@@ -52,28 +51,16 @@ THEN I am presented with all of the books I have saved to my account, each featu
 WHEN I click on the Remove button on a book
 THEN that book is deleted from my saved books list
 WHEN I click on the Logout button
-THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button 
+THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button
 ```
 
 ## Usage
 
-This application is used to search for books and save them to a database. 
+This application is used to search for books and save them to a database.
 
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
-
-## Contributing
-
-This application was modified by [Brittany Burton](https://github.com/brittanyb89)
-
-## Tests
-
-To run tests, run the following command:
-
-```
-
-```
 
 ## Questions
 
@@ -96,4 +83,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ```
 
 ```
-
