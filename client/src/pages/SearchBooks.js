@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
-
+import { useMutation } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { searchGoogleBooks } from "../utils/API";
 import Auth from "../utils/auth";
-import { saveBook, searchGoogleBooks } from "../utils/API";
-import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
+import { getSavedBookIds, saveBookIds } from "../utils/localStorage";
+import { SAVE_BOOK } from "../utils/mutations";
 
 const SearchBooks = () => {
-  // TODO: create state for holding returned google api data
+  // create state for holding returned google api data
   const [searchedBooks, setSearchedBooks] = useState([]);
-  // TODO: create state for holding our search field data
+  // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
 
-  // TODO: create state to hold saved bookId values
+  // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  // TODO: set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // use useMutation() Hook to execute the SAVE_BOOK mutation in the handleSaveBook() function instead of the saveBook() function imported from the API file
+  const [saveBook] = useMutation(SAVE_BOOK);
+
+  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     return () => saveBookIds(savedBookIds);
   });
 
-  // TODO: create method to search for books and set state on form submit
+  // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -29,7 +33,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput); // error in terminal: failed to fetch
+      const response = await searchGoogleBooks(searchInput);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
@@ -52,12 +56,12 @@ const SearchBooks = () => {
     }
   };
 
-  // TODO: create function to handle saving a book to our database
+  // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
-    // TODO: find the book in `searchedBooks` state by the matching id
+    // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
-    // TODO: get token
+    // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -71,7 +75,7 @@ const SearchBooks = () => {
         throw new Error("something went wrong!");
       }
 
-      // TODO: if book successfully saves to user's account, save book id to state
+      // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
       console.error(err);
