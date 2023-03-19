@@ -1,4 +1,4 @@
-// TODO: route to get logged in user's info (needs the token)
+// route to get logged in user's info
 export const getMe = (token) => {
   return fetch("/api/users/me", {
     headers: {
@@ -28,7 +28,7 @@ export const loginUser = (userData) => {
   });
 };
 
-// TODO: save book data for a logged in user
+// save book data for a logged in user
 export const saveBook = (bookData, token) => {
   return fetch("/api/users", {
     method: "PUT",
@@ -40,7 +40,7 @@ export const saveBook = (bookData, token) => {
   });
 };
 
-// TODO: remove saved book data for a logged in user
+// remove saved book data for a logged in user
 export const deleteBook = (bookId, token) => {
   return fetch(`/api/users/books/${bookId}`, {
     method: "DELETE",
@@ -50,7 +50,7 @@ export const deleteBook = (bookId, token) => {
   });
 };
 
-// TODO: make a search to google books api
+// make a search to google books api
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchGoogleBooks = (query) => {
   return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`); // error in terminal: failed to fetch; err_internet_disconnected
