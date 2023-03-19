@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+import { Alert, Button, Form } from "react-bootstrap";
 import { ADD_USER } from "../utils/mutations";
 
 // Replace the addUser() functionality imported from the API file with the add_user() mutation functionality.
