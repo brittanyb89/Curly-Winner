@@ -3,7 +3,7 @@ export const getMe = (token) => {
   return fetch("/api/users/me", {
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("token") || ""}`,
     },
   });
 };
@@ -34,7 +34,7 @@ export const saveBook = (bookData, token) => {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("token") || ""}`,
     },
     body: JSON.stringify(bookData),
   });
@@ -45,7 +45,7 @@ export const deleteBook = (bookId, token) => {
   return fetch(`/api/users/books/${bookId}`, {
     method: "DELETE",
     headers: {
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("token") || ""}`,
     },
   });
 };
