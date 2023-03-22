@@ -46,11 +46,11 @@ const resolvers = {
       return { token, user };
     },
     // Accepts a book's bookId and authors array, description, title, bookId, image, and link as parameters; returns a User type
-    saveBook: async (parent, { bookInput }, context) => {
+    saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { saveBook: bookInput } },
+          { $push: { saveBook: bookData } },
           { new: true }
         );
         return updatedUser;
