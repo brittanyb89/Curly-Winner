@@ -12,6 +12,10 @@
 
 As the ability to personalize user data is the cornerstone of real-world web development, and as user demands evolve, the need for a dynamic, data-driven web application becomes increasingly important. This applicationis a fully functional Google Books API search engine that was originally built with a RESTful API and now refactored to be a GraphQL API built with Apollo Server. This app allows users to save book searches to the back end. The developer set up an Apollo Server to use GraphQL queries and mutations to fetch and modify data, replacing the existing RESTful API. The existing authentication middleware was modified so that it works in the context of a GraphQL API. The developer also added an Apollo Provider so that requests can communicate with an Apollo Server and deployed to Heroku.
 
+[GitHub](https://github.com/brittanyb89/Curly-Winner)
+
+[Heroku Deployment](https://curly-winner.herokuapp.com/)
+
 # User Story
 
 ```
@@ -61,6 +65,8 @@ This application is used to search for books and save them to a database.
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
+
+![Home Page of Logged In User](images/challenge%2021.png)
 
 ## Questions
 
